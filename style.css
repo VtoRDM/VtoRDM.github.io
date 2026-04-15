@@ -1,0 +1,232 @@
+/* --- RESET E ESTILOS GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta Dark Mode: Preto, Acinzentado e Verde */
+    --cor-fundo: #121212;        /* Preto acinzentado escuro para o fundo geral */
+    --cor-primaria: #050505;     /* Preto quase puro para Header e Footer */
+    --cor-secundaria: #00d26a;   /* Verde vibrante para destaques, botões e bordas */
+    --cor-texto: #e0e0e0;        /* Cinza bem claro para o texto principal */
+    --cor-texto-mutado: #a0a0a0; /* Cinza médio para parágrafos */
+    --cor-card: #1e1e1e;         /* Cinza chumbo/grafite para os cards e seção sobre */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- CABEÇALHO (FLEXBOX) --- */
+header {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333; /* Linha sutil para separar o header do fundo */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Transformando os links do menu em botões */
+.menu a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid transparent; /* Borda invisível por padrão */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse: Borda verde, texto verde e fundo verde suave */
+.menu a:hover {
+    color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+    background-color: rgba(0, 210, 106, 0.1); 
+}
+
+/* --- SEÇÕES GERAIS --- */
+main {
+    margin-top: 80px;
+    padding-bottom: 2rem;
+}
+
+section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- SEÇÃO SOBRE MIM --- */
+#sobre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    background-color: var(--cor-card);
+    border-radius: 12px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 3rem 5%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Sombra mais escura para o dark mode */
+    border: 1px solid #2a2a2a; /* Borda sutil para dar profundidade */
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--cor-secundaria); /* Borda verde na foto */
+    box-shadow: 0 0 15px rgba(0, 210, 106, 0.2); /* Brilho verde suave ao redor da foto */
+    flex-shrink: 0;
+}
+
+.sobre-conteudo {
+    flex: 1;
+    max-width: 700px;
+}
+
+#sobre h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff; /* Branco puro para o título principal */
+}
+
+#sobre p {
+    font-size: 1.1rem;
+    color: var(--cor-texto-mutado);
+}
+
+/* --- SEÇÃO PROJETOS (GRID) --- */
+#projetos h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card-projeto {
+    background-color: var(--cor-card);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 210, 106, 0.15); /* Sombra verde sutil ao passar o mouse */
+    border-color: var(--cor-secundaria); /* A borda fica verde ao passar o mouse */
+}
+
+.card-projeto h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    color: var(--cor-secundaria); /* Títulos dos projetos em verde */
+}
+
+.card-projeto p {
+    font-size: 1rem;
+    color: var(--cor-texto-mutado);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-projeto a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--cor-secundaria);
+    color: #000000; /* Texto preto no botão verde para dar contraste máximo */
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: auto;
+}
+
+.card-projeto a:hover {
+    background-color: #00b359; /* Um verde ligeiramente mais escuro no hover */
+    transform: scale(1.02); /* Botão cresce um pouquinho ao passar o mouse */
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-mutado);
+    border-top: 1px solid #333;
+}
+
+/* --- RESPONSIVIDADE (TABLET E MOBILE) --- */
+@media (max-width: 768px) {
+    #sobre {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 3rem 5%;
+    }
+
+    #sobre h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .menu {
+        gap: 1rem;
+    }
+    
+    main {
+        margin-top: 130px;
+    }
+
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
+}
